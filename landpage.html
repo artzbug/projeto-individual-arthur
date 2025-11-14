@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="landpage.css">
+    <title> Landpage </title>
+</head>
+
+<body>
+    <div class="background-mine">
+    
+    </div>
+    
+
+<div class="container-faixa"> 
+ <img src="minezao.png" alt="" class="bemvindo">
+ <button onclick="Cadastro" class="botaoCadastro"> <b> cadastro </b> </button>
+ <button onclick="tocar()" class="Musicatocar" id="musicaT"></button>
+<button onclick="pausar()" class="Musicapausar" id="musicaP"></button>
+</div>
+
+<audio  src="C418 Minecraft Music Slowed Down 🎵 With Rain 🌧️ 1 hour [6652omMeX7Y].mp3" loop autoplay id="audiomusica"> </audio>
+
+
+
+
+</body>
+<script>
+  var musica = audiomusica
+    function tocar() {
+     musica.play()
+    }
+  function pausar() {
+     musica.pause()
+    }
+
+
+
+
+</script>
+
+
+
+
+</html>
