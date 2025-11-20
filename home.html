@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Site</title>
+    
+</head>
+<body>
+    <header class="home">
+        <img src="minezao.png" alt="" class="bemvindo">
+        <button onclick="Cadastro()" class="botaoCadastro"><b>Cadastro</b></button>
+        <button onclick="Login()" class="botaoLogin"><b>Login</b></button>
+        <button onclick="tocar()" class="Musicatocar" id="musicaT"></button>
+        <button onclick="pausar()" class="Musicapausar" id="musicaP"></button>
+    </header>
+<br>
+<br>
+
+ <div class="historia">
+    <div class="mojang">
+        
+      <div class="imgs">
+        <img src="../assets/mojang] 1.png" alt="" class="mojang-img"> 
+       <img src="../assets/notch3.jpg    " alt="notch-img">
+        
+      </div >     
+          <div>
+           <div class="texto-ao-lado">
+            <p>Minecraft é um dos jogos eletrônicos mais vendidos de todos os tempos e aclamado pela crítica</p> 
+            <p>Game of the Year (Jogo do Ano): Minecraft ganhou vários prêmios de Jogo do Ano de diferentes organizações, incluindo da NAVGTR Corp. em 2012.</p>
+        </div>
+          
+        
+        <div class="texto-ao-lado2"> 
+        <p> <br> <br> Markus Alexej Persson, conhecido como Notch, nasceu em 1º de junho de 1979 em Estocolmo. É um desenvolvedor sueco famoso por criar Minecraft, 
+          o jogo mais vendido da história, e por fundar a Mojang Studios em 2009.</p>
+        </div>
+        </div>
+  </div>
+</div>
+
+<div class="criaturas">
+    <div class="pacificas"> 
+
+<img src="../assets/60px-HorseFace 1.png" alt=""> 
+<img src="../assets/60px-PigFace 1.png" alt="">
+<img src="../assets/villager.png" alt="">
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+</body>
+</html>
+
+
+<script>
+    var musica = new Audio('caminho/para/sua/musica.mp3');
+    function tocar() {
+        musica.play();
+    }
+    function pausar() {
+        musica.pause();
+    }
+</script>

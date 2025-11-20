@@ -1,0 +1,180 @@
+@font-face {
+    font-family: 'minecraftCorpo';
+    src: url('./Minecraft.ttf');
+}
+
+@font-face {
+    font-family: 'minecraftTitulo';
+    src: url('./Minercraftory.ttf');
+}
+
+body {
+    background-image: url("../assets/mine-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.bemvindo {
+    position: absolute;
+    top: -5%;
+    left: 35%;
+    width: 30%;
+    height: auto;
+    padding: 1%;
+    margin: 1%;
+}
+
+.botaoCadastro {
+    font-family: 'minecraftCorpo';
+    position: absolute;
+    top: 10%;
+    left: 17%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 5px 0 #388E3C;
+    transition: all 0.1s ease-out;
+}
+
+.botaoCadastro:hover {
+    background-color: #5cb85c;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 transparent;
+}
+
+.botaoCadastro:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #388E3C;
+    background-color: #388E3C;
+}
+
+.botaoLogin {
+    font-family: 'minecraftCorpo';
+    position: absolute;
+    top: 10%;
+    left: 8%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 5px 0 #388E3C;
+    transition: all 0.1s ease-out;
+}
+
+.botaoLogin:hover {
+    background-color: #5cb85c;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 transparent;
+}
+
+.botaoLogin:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #388E3C;
+    background-color: #388E3C;
+}
+
+.conteudo-principal {
+    padding: 20px;
+    font-family: 'minecraftCorpo';
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 0;
+}
+
+.historia {
+background-color: #388E3C;
+background-size: cover;
+position: relative;
+    height: 100vh;
+    
+}
+
+.mojang {
+display: flex;
+top: 10%;
+left: 15%;
+position: relative;
+align-items: center;
+flex-direction: row; 
+    align-items: flex-start; 
+    gap: 50px; 
+
+}
+
+
+
+.imgs img{
+
+width: 450px; 
+    height: auto;
+    display: block;
+    padding: 2%;
+    gap: 10px;
+}
+
+
+.texto-ao-lado {
+    color: white; 
+    font-family: 'minecraftCorpo';
+    max-width: 500px; 
+    font-size: 125%;
+}
+
+.notch-img {
+width: 450px; 
+    height: auto;
+    display: block;
+}
+
+.texto-ao-lado2 {
+
+color: white; 
+    font-family: 'minecraftCorpo';
+    max-width: 500px;
+    padding: 20px; 
+    font-size: 125%;
+
+
+}
+
+
+.criaturas {
+background-color: #388E3C;
+background-size: cover;
+position: relative;
+    height: 100vh;
+    
+
+
+}
+
+
+.pacificas {
+display: flex;
+width: 150px;
+height: 150px;
+gap: 80px;
+
+
+}
