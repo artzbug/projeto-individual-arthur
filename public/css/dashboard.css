@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF; 
+}
+
+.container-dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.barra-lateral {
+    width: 250px;
+    background-color: #388E3C; 
+    color: #FFFFFF;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 0 0 #2C7A34; 
+}
+
+
+.perfil-usuario {
+    text-align: center;
+    padding: 0 20px 20px;
+    border-bottom: 2px solid #57AA5C; 
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #FFD700; 
+    border-radius: 5px; 
+    margin: 0 auto 10px;
+    border: 3px solid #FFC400;
+}
+
+.nome-usuario {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #000;
+}
+
+
+.navegacao-principal {
+    flex-grow: 1;
+    padding-top: 20px;
+}
+
+.item-navegacao {
+    display: block;
+    padding: 15px 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: background-color 0.1s;
+}
+
+.item-navegacao:hover, .item-navegacao.ativo {
+    background-color: #57AA5C; 
+    box-shadow: inset 5px 0 0 0 #000000; 
+}
+
+
+.botao-sair {
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #D32F2F; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 3px 0 0 #9A0007; 
+    transition: all 0.1s;
+}
+
+.botao-sair:hover {
+    background-color: #E53935;
+}
+
+.botao-sair:active {
+    transform: translateY(3px); 
+    box-shadow: none;
+}
+
+
+.conteudo-principal {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.cabecalho {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #AAA;
+}
+
+.area-conteudo {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 5px; 
+    box-shadow: 0 0 0 2px #388E3C, 5px 5px 0 0 #AAA; 
+}
+
+
+.container-kpis {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.card-kpi {
+    flex: 1; 
+    min-width: 200px;
+    padding: 15px;
+    background-color: #F0F0F0;
+    text-align: center;
+    border-radius: 5px;
+
+    border: 3px solid #388E3C;
+    box-shadow: 0 5px 0 0 #AAA; 
+}
+
+.kpi-titulo {
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+    color: #666;
+    font-weight: bold;
+}
+
+.kpi-numero {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #388E3C; 
+}

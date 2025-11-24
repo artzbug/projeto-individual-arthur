@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Aventureiro</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container-dashboard">
+        
+        <div class="barra-lateral">
+            <div class="perfil-usuario">
+                <p id="username" class="nome-usuario">Aventureiro Padrão</p>
+            </div>
+            
+            <nav class="navegacao-principal">
+                <a href="" class="item-navegacao" id="link-configuracoes"> Configurações</a>
+            </nav>
+            
+            <button id="botao_sair" class="botao-sair">
+                Sair da Sessão
+            </button>
+        </div>
+
+        <main class="conteudo-principal">
+            <header class="cabecalho">
+                <h1 id="boas_vindas">Bem-vindo(a), Aventureiro!</h1>
+            </header>
+            
+            <section class="area-conteudo">
+                <h2>Métricas do Servidor</h2>
+                
+                <div class="container-kpis">
+                    
+                    <div class="card-kpi">
+                        <p class="kpi-titulo">Aventureiros Participantes</p>
+                        <h3 class="kpi-numero">42</h3>
+                    </div>
+                    
+                    <div class="card-kpi">
+                        <p class="kpi-titulo">Média de Acertos (%)</p>
+                        <h3 class="kpi-numero">87.5%</h3>
+                    </div>
+                    
+                </div>
+            </section>
+        </main>
+    <script src="dashboard.js"> </script>
+</body>
+</html>
