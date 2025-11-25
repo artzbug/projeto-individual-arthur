@@ -1,62 +1,42 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+show databases;
+USE projeto_individual;
+SHOW TABLES;
 
-/*
-comandos para mysql server
-*/
+CREATE DATABASE projeto_individual;
+USE projeto_individual;
 
-CREATE DATABASE aquatech;
 
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(45),
+    senha VARCHAR(45) NOT NULL
 );
+INSERT INTO usuario (email, senha) VALUES ('oi', '123456');
+select * from usuario;
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE quizz (
+    idquizz INT PRIMARY KEY AUTO_INCREMENT,
+    total_perguntas VARCHAR(45),
+    inicio_quizz DATETIME,
+    nome_quizz varchar(45),
+    fim_quizz DATETIME default current_timestamp
 );
-
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+insert quizz 
+CREATE TABLE resultado_quizz (
+    idresultado INT PRIMARY KEY AUTO_INCREMENT,
+    idCadastro INT NULL,
+    id_quizz INT NULL,
+    qtdAcertos int,
+    qtdErro int,
+    percentual_acerto INT,
+    FOREIGN KEY (idCadastro) REFERENCES usuario(id),
+    FOREIGN KEY (id_quizz) REFERENCES quizz(idquizz)
 );
+insert resultado_quizz (qtdAcertos, qtdErro)  values (10, 4);
+insert quizz (qtdAcertos, qtdErro)  values (10, 4);
+select * from resultado_quizz;
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+DESC usuario;
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
-
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+SELECT * FROM usuario;
