@@ -42,10 +42,73 @@
                         <p class="kpi-titulo">Média de Acertos (%)</p>
                         <h3 class="kpi-numero">87.5%</h3>
                     </div>
+
+
+                    <div class="grafico">
+                        <canvas id="myChart"></canvas>
+                    </div>
                     
                 </div>
             </section>
         </main>
-    <script src="dashboard.js"> </script>
+    <script> 
+    b_email.innerHTML = sessionStorage.EMAIL_USUARIO;
+
+function exibirGrafico(){
+    var listaPercentual = [];
+    var email = sessionStorage.getItem("EMAIL_USUARIO");
+    console.log("EMAIL_USUARIO")
+
+
+
+       fetch(`quizz/${id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+            })
+        }).then(function (resposta) {
+            resposta.json()
+            .then(function (conversao){
+                for(let i = 0; i < conversao.length; i++){
+                    listaPercentual[i] = conversao[i].percentual_acerto;
+                }
+            var ctx = document.getElementById('myChart');
+
+              new Chart(ctx, {
+             type: "line",
+            data: {
+            labels: percentual,
+            datasets: [{
+              label: "Percentual de acertos",
+              data: valor,
+              borderWidth: 1,
+            }],
+
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            }
+          }
+        }
+      });
+
+    }).catch(function (erro) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    }
+    
+    
+
+ 
+    
+    
+    // src="dashboard.js" 
+    
+    
+    </script>
 </body>
 </html>
