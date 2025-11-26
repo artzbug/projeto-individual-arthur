@@ -143,6 +143,7 @@
     let quantidadeDeQuestoes = listaDeQuestoes.length
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
+
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "none"
@@ -284,6 +285,7 @@
     }
 
     function finalizarJogo() {
+        var idUsuario = sessionStorage.getItem("ID_USUARIO");
 
         let textoParaMensagemFinal = null
         let classComCoresParaMensagemFinal = null
@@ -325,14 +327,18 @@
       body: JSON.stringify({
         qtdAcertoServer: certas,
         qtdErroServer: erradas,
-        porcentualServer: porcentagemFinalDeAcertos
+        porcentualServer: porcentagemFinalDeAcertos,
+        idUserServer: idUsuario
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            alert("Quizz realizado")
+            setTimeout(function () {
+                        window.location = "./dashboard.html";
+         }, 1000);
+         
         } else {
           throw "Houve um erro ao tentar realizar o quizz!";
         }

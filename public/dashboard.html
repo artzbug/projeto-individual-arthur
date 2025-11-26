@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard do Aventureiro</title>
     <link rel="stylesheet" href="./css/dashboard.css">
 </head>
+
 <body>
     <div class="container-dashboard">
-        
+
         <div class="barra-lateral">
             <div class="perfil-usuario">
                 <div class="avatar"> </div>
                 <p id="user-name" class="nome-usuario">Aventureiro Padrão</p>
             </div>
-            
+
             <nav class="navegacao-principal">
                 <a href="" class="item-navegacao" id="link-configuracoes"> Configurações</a>
+                <a href="./quizz.html" class="item-navegacao" id="link-configuracoes"> Quizz</a>
             </nav>
-            
+
             <button id="logout-button" class="botao-sair">
                 Sair da Sessão
             </button>
@@ -28,25 +31,101 @@
             <header class="cabecalho">
                 <h1 id="greeting">Bem-vindo(a), Aventureiro!</h1>
             </header>
-            
+
             <section class="area-conteudo">
                 <h2>Métricas do Servidor</h2>
-                
+
                 <div class="container-kpis">
-                    
+
                     <div class="card-kpi">
-                        <p class="kpi-titulo">Aventureiros Participantes</p>
-                        <h3 class="kpi-numero">42</h3>
+                        <p class="kpi-titulo">Quantidade de Quizz</p>
+                        <h3 class="kpi-numero" id="kpi_quizz">42</h3>
                     </div>
-                    
+
                     <div class="card-kpi">
                         <p class="kpi-titulo">Média de Acertos (%)</p>
-                        <h3 class="kpi-numero">87.5%</h3>
+                        <h3 class="kpi-numero" id="kpi_acertos">87.5%</h3>
                     </div>
-                    
+                </div>
+                <br>
+                <div class="grafico">
+                    <canvas id="myChart"></canvas>
                 </div>
             </section>
         </main>
-    <script src="dashboard.js"> </script>
+        <script>
+            var listaDados = [];
+            function exibirGrafico() {
+                var idUsuario = sessionStorage.getItem("ID_USUARIO");
+                var listaLabels = [];
+                var qtdAcertos = 0
+                var percentualAcerto = 0
+                fetch(`/quizz/listar`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then(function (resposta) {
+                    if (resposta.ok) {
+                        resposta.json().then(function (conversao) {
+
+                            console.log("Dados recebidos: ", conversao);
+                            listaLabels = [];
+
+                            for (var i = 0; i < conversao.length; i++) {
+
+                                listaDados.push(conversao[i].percentual_acerto);
+
+                                listaLabels.push(`Tentativa ${i + 1}`);
+                            }
+
+                            kpi_acertos.innerHTML = `${listaDados[0]}%`
+                            kpi_quizz.innerHTML = listaDados.length
+                            var ctx = document.getElementById('myChart');
+
+                            new Chart(ctx, {
+                                type: "line",
+                                data: {
+                                    labels: listaLabels,
+                                    datasets: [{
+                                        label: "Percentual de acertos",
+                                        data: listaDados,
+                                        borderWidth: 2,
+                                        borderColor: 'blue',
+                                        backgroundColor: 'lightblue'
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true,
+                                            max: 100
+                                        }
+                                    },
+                                    plugins: {
+                                        title: {
+                                            display: true,
+                                            text: 'Evolução no Quiz',
+                                            font: {
+                                                size: 18
+                                            },
+                                        }
+                                    },
+                                }
+                            });
+
+                        });
+                    } else {
+                        console.error("Houve um erro na requisição da API.");
+                    }
+
+                }).catch(function (erro) {
+                    console.error(`#ERRO: ${erro}`);
+                });
+            }
+            exibirGrafico()
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>

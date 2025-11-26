@@ -140,3 +140,7 @@ body {
     font-weight: bold;
     color: #388E3C; 
 }
+.grafico{
+    width: 800px;
+    height: 800px;
+}

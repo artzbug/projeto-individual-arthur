@@ -5,6 +5,7 @@ function cadastrar(req, res) {
     var qtdAcerto = req.body.qtdAcertoServer;
     var qtdErro = req.body.qtdErroServer;
     var porcentagemFinalDeAcertos = req.body.porcentualServer
+    var idUser = req.body.idUserServer
 
     // Faça as validações dos valores
     if (qtdAcerto  == undefined) {
@@ -14,7 +15,7 @@ function cadastrar(req, res) {
     }
     else {
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        quizzModel.cadastrar(qtdAcerto, qtdErro, porcentagemFinalDeAcertos)
+        quizzModel.cadastrar(qtdAcerto, qtdErro, porcentagemFinalDeAcertos, idUser)
             .then(
                 function (resultado) {
                     res.json(resultado);

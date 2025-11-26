@@ -59,7 +59,6 @@ function cadastrar(req, res) {
             .then(
                 function (resultado) {
                     res.json(resultado);
-                    res.status(200).send(resultado);
                 }
             ).catch(
                 function (erro) {

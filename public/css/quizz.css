@@ -72,3 +72,112 @@ button {
 .text-new-gray {
     color: var(--new-gray);
 }
+
+body {
+    font-family: Arial, sans-serif;
+   background-image: url('../assets/mine-background.jpg'); 
+    background-size: cover;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+#pontuacaoEJogo {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 500px;
+    text-align: center;
+}
+
+
+.flex-colunar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.padding-8 {
+    padding: 10px;
+}
+
+.text-bold {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* --- Estilos das Bordas (Cores) --- */
+.border-primary {
+    border: 2px solid #3498db; /* Azul */
+    background-color: #eaf6ff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.border-secondary {
+    border: 2px solid #2ecc71; 
+    border-radius: 8px;
+}
+
+
+#opcoes {
+    text-align: left; 
+    margin: 10px 0;
+}
+
+#opcoes span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.optio {
+    cursor: pointer;
+}
+
+.option:hover {
+    color: #3498db;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+#btnIniciarQuiz{
+    background-color: #3498db;
+    color: white;
+}
+ #btnSubmeter{
+    background-color: #3498db;
+    color: white;
+}
+#btnIniciarQuiz:hover {
+    background-color: #2980b9;
+}
+#btnSubmeter:hover {
+    background-color: #2980b9;
+}
+
+
+
+#btnProx, #btnTentarNovamente {
+    background-color: #2ecc71;
+    color: white;
+}
+#btnProx:hover, #btnTentarNovamente:hover {
+    background-color: #27ae60;
+}
+
+

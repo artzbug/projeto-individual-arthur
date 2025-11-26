@@ -11,7 +11,7 @@
         <div class="cartao-login fonte-pixel">
             <h1 class="titulo-principal">CRIAR NOVO MUNDO</h1>
             
-            <form class="formulario-login">
+            <div class="formulario-login">
                 <div class="grupo-entrada">
                     <div class="campo-madeira">
                         <input type="text" id="email_input" placeholder="Nome do Aventureiro" class="input-texto input-madeira">
@@ -33,7 +33,7 @@
                 <button type="submit" class="botao-servidor" onclick="cadastrar()">
                     CRIAR CONTA
                 </button>
-            </form>
+              </div>
             
             <div class="links-rodape">
                 <p class="texto-rodape">
@@ -63,7 +63,6 @@
       return false;
     }
 
-    // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
@@ -78,12 +77,9 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
-
-
           setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
+            window.location = "./login.html";
+          }, 2000);
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }

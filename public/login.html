@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entrar na Dimensão - Login</title>
-    <link rel="stylesheet" href="./css/login.css"> 
+    <link rel="stylesheet" href="./css/login.css">
 </head>
+
 <body>
     <div class="fundo-login">
         <div class="cartao-login fonte-pixel">
             <h1 class="titulo-principal">ENTRAR NA DIMENSÃO</h1>
-            
-            <form class="formulario-login">
+
+            <div class="formulario-login">
                 <div class="grupo-entrada">
                     <div class="campo-madeira">
-                        <input type="text" id="email_input" placeholder="Aventureiro"  class="input-texto input-madeira">
+                        <input type="text" id="email_input" placeholder="Aventureiro" class="input-texto input-madeira">
                     </div>
                 </div>
 
@@ -23,12 +25,12 @@
                         <input type="password" id="senha_input" placeholder="Senha" class="input-texto input-madeira">
                     </div>
                 </div>
-                
+
                 <button type="submit" class="botao-servidor" onclick="entrar()">
                     Join Server
                 </button>
-            </form>
-            
+            </div>
+
             <div class="links-rodape">
                 <p class="texto-rodape">
                     Não tem conta? <a href="cadastro.html" class="link-destaque"> Criar um Novo Mundo </a>
@@ -37,20 +39,18 @@
         </div>
     </div>
 </body>
+
 </html>
 <script>
-    
+
     function entrar() {
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            console.log('preencher')
             return false;
         }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -62,33 +62,30 @@
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-            if (resposta.ok) {
-                console.log(resposta);
+            console.log("Resposta do servidor:", resposta);
+
+            if (resposta.ok) { // Verifica se o login deu certo (Status 200)
                 resposta.json().then(json => {
                     console.log(json);
-                    console.log(JSON.stringify(json));
                     sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.EMAIL_USUARIO = json.email;
-                      
-                        console.log('foi')
 
+                    // Animação ou delay opcional antes de ir
+                    setTimeout(function () {
+                        window.location = "./quizz.html";
+                    }, 1000);
                 });
-                  window.location = "./dashboard.html";
-
             } else {
-
                 console.log("Houve um erro ao tentar realizar o login!");
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    alert("Login ou senha inválidos!"); // Avisa o usuário
                 });
             }
 
         }).catch(function (erro) {
             console.log(erro);
         })
-
         return false;
     }
 </script>
